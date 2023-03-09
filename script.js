@@ -4,11 +4,15 @@ let turn = 'X'
 let counter = 0;
 let gameOver = false;
 let message = document.getElementById("messageBox")
+let aaluAudio = new Audio("aalu.wav")
+let crossAudio = new Audio("cross.wav")
+
 
 for (let e of boxes){
     e.addEventListener('click', () => {
         if(e.innerHTML== "" && gameOver == false){
             e.innerHTML=turn
+            turn=='O'?aaluAudio.play():crossAudio.play()
             if (counter>3){
                 checkResult();
             }
