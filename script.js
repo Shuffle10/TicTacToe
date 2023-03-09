@@ -38,7 +38,7 @@ function checkResult(){
         [1,4,7],
         [2,5,8],
         [0,4,8],
-        [2,4,6],      
+        [2,4,6]     
     ]
 
     for (let condition of winConditions){
@@ -53,7 +53,7 @@ function checkResult(){
             }
         }
         
-            if (counter>8 && gameOver==false){
+        else if (gameOver==false && counter==9){
                     winText.innerHTML = `Its a draw`
                     winText.style.display = "block"
                     winText.style.color = "orange"
