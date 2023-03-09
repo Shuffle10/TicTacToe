@@ -1,7 +1,7 @@
 let boxesObj = document.getElementsByClassName("box");
 let boxes =  Array.from(boxesObj)
 let turn = 'X'
-let counter = 0;
+let counter = 1;
 let gameOver = false;
 let message = document.getElementById("messageBox")
 let winAudio = new Audio("win.mp3")
@@ -53,14 +53,13 @@ function checkResult(){
             }
         }
         
-            if (checkEmpty() && gameOver==false){
+            if (counter>8 && gameOver==false){
                     winText.innerHTML = `Its a draw`
                     winText.style.display = "block"
                     winText.style.color = "orange"
                     message.style.display="none"
                     drawAudio.play()
                     return gameOver=true;
-            
     }
     }
     }
@@ -71,7 +70,7 @@ function checkResult(){
         winText.innerHTML = "";
         message.innerHTML = "Turn for X";
         turn = "X";
-        counter=0;
+        counter=1;
         for (let i =0; i<9; i++){
             boxes[i].innerHTML="";
         }
