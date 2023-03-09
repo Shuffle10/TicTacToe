@@ -73,6 +73,7 @@ function checkResult(){
         winText.innerHTML = "";
         message.innerHTML = "Turn for X";
         turn = "X";
+        counter=0;
         for (let i =0; i<9; i++){
             boxes[i].innerHTML="";
         }
