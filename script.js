@@ -51,16 +51,17 @@ function checkResult(){
                 winAudio.play()
                 return gameOver=true;
             }
+            
+            else if (counter==9 && counter==9){
+                        winText.innerHTML = `Its a draw`
+                        winText.style.display = "block"
+                        winText.style.color = "orange"
+                        message.style.display="none"
+                        drawAudio.play()
+                        return gameOver=true;
+        }
         }
         
-        else if (gameOver==false && counter==9){
-                    winText.innerHTML = `Its a draw`
-                    winText.style.display = "block"
-                    winText.style.color = "orange"
-                    message.style.display="none"
-                    drawAudio.play()
-                    return gameOver=true;
-    }
     }
     }
 
