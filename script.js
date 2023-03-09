@@ -4,15 +4,14 @@ let turn = 'X'
 let counter = 0;
 let gameOver = false;
 let message = document.getElementById("messageBox")
-let aaluAudio = new Audio("aalu.wav")
-let crossAudio = new Audio("cross.wav")
+let winAudio = new Audio("win.mp3")
+let drawAudio = new Audio("draw.mp3")
 
 
 for (let e of boxes){
     e.addEventListener('click', () => {
         if(e.innerHTML== "" && gameOver == false){
             e.innerHTML=turn
-            turn=='O'?aaluAudio.play():crossAudio.play()
             if (counter>3){
                 checkResult();
             }
@@ -48,6 +47,16 @@ function checkResult(){
                 document.getElementById("winText").innerHTML = `${turn} won the match`
                 document.getElementById("winText").style.display = "block"
                 message.style.display="none"
+                winAudio.play()
+                return gameOver=true;
+            }
+
+            if (counter==8 && gameOver==false){
+                document.getElementById("winText").innerHTML = `Its a draw`
+                document.getElementById("winText").style.display = "block"
+                document.getElementById("winText").style.color = "orange"
+                message.style.display="none"
+                drawAudio.play()
                 return gameOver=true;
             }
         }
