@@ -1,0 +1,37 @@
+.body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 15px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: repeat(3, 10vw);
+    grid-template-rows: repeat(3, 10vw);
+}
+
+.box{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 45px;
+}
+
+#messageBox{
+    color: rgb(37, 37, 90);
+    font-size: 22px;
+}
+
+#winText{
+    font-size: 50px;
+    color: green;
+    text-align: center;
+
+}
+
+
+
