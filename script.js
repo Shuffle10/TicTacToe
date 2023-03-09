@@ -53,8 +53,7 @@ function checkResult(){
             }
         }
         
-            if (counter==8 && gameOver==false){
-                if(checkEmpty){
+            if (checkEmpty() && gameOver==false){
                     winText.innerHTML = `Its a draw`
                     winText.style.display = "block"
                     winText.style.color = "orange"
@@ -62,7 +61,6 @@ function checkResult(){
                     drawAudio.play()
                     return gameOver=true;
             
-        }
     }
     }
     }
