@@ -1,7 +1,7 @@
 let boxesObj = document.getElementsByClassName("box");
 let boxes =  Array.from(boxesObj)
 let turn = 'X'
-let counter = 1;
+let counter = 0;
 let gameOver = false;
 let message = document.getElementById("messageBox")
 let winAudio = new Audio("win.mp3")
@@ -12,7 +12,10 @@ for (let e of boxes){
     e.addEventListener('click', () => {
         if(e.innerHTML== "" && gameOver == false){
             e.innerHTML=turn
-            if (counter>3){
+            counter++;
+            console.log(counter)
+
+            if (counter>4){
                 checkResult();
             }
            changeTurn()
@@ -26,7 +29,6 @@ for (let e of boxes){
 function changeTurn(){
     turn=='X'?turn='O':turn='X'
     message.innerHTML = `Turn for ${turn}`
-    counter++;
 }
 
 function checkResult(){
@@ -51,18 +53,17 @@ function checkResult(){
                 winAudio.play()
                 return gameOver=true;
             }
-            
-            else if (counter==9 && counter==9){
-                        winText.innerHTML = `Its a draw`
-                        winText.style.display = "block"
-                        winText.style.color = "orange"
-                        message.style.display="none"
-                        drawAudio.play()
-                        return gameOver=true;
         }
-        }
-        
+     
     }
+    if (counter==9 && gameOver==false){
+        winText.innerHTML = `Its a draw`
+        winText.style.display = "block"
+        winText.style.color = "orange"
+        message.style.display="none"
+        drawAudio.play()
+        return gameOver=true;
+    }  
     }
 
     function reset(){
@@ -71,7 +72,7 @@ function checkResult(){
         winText.innerHTML = "";
         message.innerHTML = "Turn for X";
         turn = "X";
-        counter=1;
+        counter=0;
         for (let i =0; i<9; i++){
             boxes[i].innerHTML="";
         }
