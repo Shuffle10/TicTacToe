@@ -4,13 +4,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px 15px;
+    margin: 5px 15px;
 }
 
 .container{
     display: grid;
-    grid-template-columns: repeat(3, 10vw);
-    grid-template-rows: repeat(3, 10vw);
+    grid-template-columns: repeat(3, 11vw);
+    grid-template-rows: repeat(3, 11vw);
 }
 
 .box{

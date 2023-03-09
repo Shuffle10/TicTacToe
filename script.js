@@ -6,7 +6,7 @@ let gameOver = false;
 let message = document.getElementById("messageBox")
 let winAudio = new Audio("win.mp3")
 let drawAudio = new Audio("draw.mp3")
-
+let winText = document.getElementById("winText");
 
 for (let e of boxes){
     e.addEventListener('click', () => {
@@ -44,23 +44,46 @@ function checkResult(){
     for (let condition of winConditions){
         if ((boxes[condition[0]].innerHTML!="")){
             if((boxes[condition[0]].innerHTML == boxes[condition[1]].innerHTML) && (boxes[condition[1]].innerHTML == boxes[condition[2]].innerHTML)){
-                document.getElementById("winText").innerHTML = `${turn} won the match`
-                document.getElementById("winText").style.display = "block"
+                winText.innerHTML = `${turn} won the match`
+                winText.style.display = "block"
+                winText.style.color = "green"
                 message.style.display="none"
                 winAudio.play()
                 return gameOver=true;
             }
-
+        }
+        
             if (counter==8 && gameOver==false){
-                document.getElementById("winText").innerHTML = `Its a draw`
-                document.getElementById("winText").style.display = "block"
-                document.getElementById("winText").style.color = "orange"
-                message.style.display="none"
-                drawAudio.play()
-                return gameOver=true;
-            }
+                if(checkEmpty){
+                    winText.innerHTML = `Its a draw`
+                    winText.style.display = "block"
+                    winText.style.color = "orange"
+                    message.style.display="none"
+                    drawAudio.play()
+                    return gameOver=true;
+            
         }
     }
+    }
+    }
+
+    function reset(){
+        gameOver = false
+        message.style.display="block";
+        winText.innerHTML = "";
+        message.innerHTML = "Turn for X";
+        turn = "X";
+        for (let i =0; i<9; i++){
+            boxes[i].innerHTML="";
+        }
+    }
+
+    function checkEmpty(){
+        for (let i =0; i<9; i++){
+            if (boxes[i]==""){
+                return false;
+            }
+        }
     }
 
 
