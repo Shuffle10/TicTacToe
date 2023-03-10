@@ -9,6 +9,8 @@ let message = document.getElementById("messageBox")
 let winAudio = new Audio("win.mp3")
 let drawAudio = new Audio("draw.mp3")
 let moveAudio = new Audio("move.mp3")
+let denyAudio = new Audio("deny.mp3")
+
 
 
 let winText = document.getElementById("winText");
@@ -31,6 +33,7 @@ for (let e of boxes){
         }
         else{
             message.innerHTML= "Can't change!!"
+            denyAudio.play()
         }
     });
 }
