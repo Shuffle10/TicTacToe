@@ -87,9 +87,13 @@ function checkResult(){
                     line.classList.add("c1")
                 }
 
-                else{
+                else if (condition[0]==2 && condition[2]==6){
                     line.style.display = 'block';
                     line.classList.add("c2")
+                }
+
+                else {
+                    line.style.display = 'none';
                 }
                 
                 return gameOver=true;
