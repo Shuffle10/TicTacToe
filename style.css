@@ -5,6 +5,7 @@
     justify-content: center;
     align-items: center;
     margin: 5px 15px;
+    margin-bottom: 50px;
 }
 
 .container{
@@ -18,7 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 45px;
+    font-size: 8vw;
 }
 
 #messageBox{
@@ -27,7 +28,7 @@
 }
 
 #winText{
-    font-size: 50px;
+    font-size:32px;
     color: green;
     text-align: center;
 
@@ -40,7 +41,7 @@
     position: absolute;
     transform-origin: top;
     transform: translateX(1vw) translateY(5.5vw);
-    animation: draw 0.7s;
+    animation: draw 2s;
     display: none;
 }
 
@@ -75,11 +76,11 @@
 @keyframes draw {
 
     0%{
-      width: 0;  
+      background-color: transparent;
     }
 
     100%{
-      width: 30vw;
+      background-color: red;
     }
     
 }

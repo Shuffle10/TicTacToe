@@ -1,18 +1,26 @@
 let boxesObj = document.getElementsByClassName("box");
 let boxes =  Array.from(boxesObj)
+
 let turn = 'X'
 let counter = 0;
 let gameOver = false;
 let message = document.getElementById("messageBox")
+
 let winAudio = new Audio("win.mp3")
 let drawAudio = new Audio("draw.mp3")
+let moveAudio = new Audio("move.mp3")
+
+
 let winText = document.getElementById("winText");
+
 let line = document.getElementsByClassName("line")[0]
+let lineUtilityClass = ["h2","h3","v1","v2","v3","c1","c2"]
 
 for (let e of boxes){
     e.addEventListener('click', () => {
         if(e.innerHTML== "" && gameOver == false){
             e.innerHTML=turn
+            moveAudio.play()
             counter++;
             console.log(counter)
 
@@ -52,42 +60,42 @@ function checkResult(){
                 winText.style.color = "green"
                 message.style.display="none"
                 winAudio.play()
-                if(condition[0]==0 && condition[2]==2){
+                if(condition[0]==0 && condition[1]==1 && condition[2]==2){
                     line.style.display = 'block';
                 }
 
-                else if (condition[0]==3 && condition[2]==5){
+                else if (condition[0]==3 && condition[1]==4 && condition[2]==5){
                     line.style.display = 'block';
                     line.classList.add("h2")
                     
                 }
 
-                else if (condition[0]==6 && condition[2]==8){
+                else if (condition[0]==6 && condition[1]==7 && condition[2]==8){
                     line.style.display = 'block';
                     line.classList.add("h3")
                 }
 
-                else if (condition[0]==0 && condition[2]==6){
+                else if (condition[0]==0 && condition[1]==3 && condition[2]==6){
                     line.style.display = 'block';
                     line.classList.add("v1")
                 }
 
-                else if (condition[0]==1 && condition[2]==7){
+                else if (condition[0]==1 && condition[1]==4 && condition[2]==7){
                     line.style.display = 'block';
                     line.classList.add("v2")
                 }
 
-                else if (condition[0]==2 && condition[2]==8){
+                else if (condition[0]==2 && condition[1]==5 && condition[2]==8){
                     line.style.display = 'block';
                     line.classList.add("v3")
                 }
 
-                else if (condition[0]==0 && condition[2]==8){
+                else if (condition[0]==0 && condition[1]==4 && condition[2]==8){
                     line.style.display = 'block';
                     line.classList.add("c1")
                 }
 
-                else if (condition[0]==2 && condition[2]==6){
+                else if (condition[0]==2 && condition[1]==4 && condition[2]==6){
                     line.style.display = 'block';
                     line.classList.add("c2")
                 }
@@ -118,6 +126,8 @@ function checkResult(){
         winText.innerHTML = "";
         message.innerHTML = "Turn for X";
         line.style.display = 'none';
+        line.classList.remove(...lineUtilityClass)
+
         turn = "X";
         counter=0;
         for (let i =0; i<9; i++){
