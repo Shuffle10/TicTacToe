@@ -7,6 +7,7 @@ let message = document.getElementById("messageBox")
 let winAudio = new Audio("win.mp3")
 let drawAudio = new Audio("draw.mp3")
 let winText = document.getElementById("winText");
+let line = document.getElementsByClassName("line")[0]
 
 for (let e of boxes){
     e.addEventListener('click', () => {
@@ -51,11 +52,52 @@ function checkResult(){
                 winText.style.color = "green"
                 message.style.display="none"
                 winAudio.play()
+                if(condition[0]==0 && condition[2]==2){
+                    line.style.display = 'block';
+                }
+
+                else if (condition[0]==3 && condition[2]==5){
+                    line.style.display = 'block';
+                    line.classList.add("h2")
+                    
+                }
+
+                else if (condition[0]==6 && condition[2]==8){
+                    line.style.display = 'block';
+                    line.classList.add("h3")
+                }
+
+                else if (condition[0]==0 && condition[2]==6){
+                    line.style.display = 'block';
+                    line.classList.add("v1")
+                }
+
+                else if (condition[0]==1 && condition[2]==7){
+                    line.style.display = 'block';
+                    line.classList.add("v2")
+                }
+
+                else if (condition[0]==2 && condition[2]==8){
+                    line.style.display = 'block';
+                    line.classList.add("v3")
+                }
+
+                else if (condition[0]==0 && condition[2]==8){
+                    line.style.display = 'block';
+                    line.classList.add("c1")
+                }
+
+                else{
+                    line.style.display = 'block';
+                    line.classList.add("c2")
+                }
+                
                 return gameOver=true;
             }
         }
      
     }
+
     if (counter==9 && gameOver==false){
         winText.innerHTML = `Its a draw`
         winText.style.display = "block"
@@ -71,6 +113,7 @@ function checkResult(){
         message.style.display="block";
         winText.innerHTML = "";
         message.innerHTML = "Turn for X";
+        line.style.display = 'none';
         turn = "X";
         counter=0;
         for (let i =0; i<9; i++){
@@ -78,12 +121,7 @@ function checkResult(){
         }
     }
 
-    function checkEmpty(){
-        for (let i =0; i<9; i++){
-            if (boxes[i]==""){
-                return false;
-            }
-        }
-    }
+
+
 
 

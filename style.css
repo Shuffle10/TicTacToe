@@ -1,5 +1,5 @@
 .body{
-    height: 100vh;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,5 +33,55 @@
 
 }
 
+.line{
+    width: 30vw;
+    height: 3px;
+    background-color: red;
+    position: absolute;
+    transform-origin: top;
+    transform: translateX(1vw) translateY(5.5vw);
+    animation: draw 0.7s;
+    display: none;
+}
+
+.h2{
+    transform: translateX(1vw) translateY(16.5vw);
+}
+
+.h3{
+    transform: translateX(1vw) translateY(27.5vw);
+}
+
+.v1{
+    transform: rotate(90deg) translateY(9.5vw) translateX(16.5vw);
+}
+
+.v2{
+    transform: rotate(90deg) translateY(-1.5vw) translateX(16.5vw);
+}
+
+.v3{
+    transform: rotate(90deg) translateY(-12.5vw) translateX(16.5vw);
+}
+
+.c1{
+    transform: rotate(45deg) translateX(13vw) translateY(10.5vw);
+}
+
+.c2{
+    transform: rotate(-45deg) translateX(-10.5vw) translateY(12.5vw);
+}
+
+@keyframes draw {
+
+    0%{
+      width: 0;  
+    }
+
+    100%{
+      width: 30vw;
+    }
+    
+}
 
 
